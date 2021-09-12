@@ -1,4 +1,4 @@
-import java.util.Random;
+import java.util.*;
 
 public class arrayManipulation {
     public static int currentSize = 10;
@@ -26,10 +26,27 @@ public class arrayManipulation {
         System.out.println("\n");
     }
 
+    public static void removeIndex(int index) {
+        System.out.printf("Removing %dth element\n", index);
+        for (int i = index; i < currentSize - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+        currentSize--;
+        printArray();
+    }
+
     // Main
     public static void main(String[] args) {
         // Randomly generated Array
         randomArr();
         printArray();
+
+        // Removing 4th element
+        System.out.print("Want to delete some Indexes ? y/n : ");
+        Scanner sc = new Scanner(System.in);
+        if (sc.next().equals("y")) {
+            System.out.print("Which Index Do you Want to delete? : ");
+            removeIndex(sc.nextInt());
+        }
     }
 }
