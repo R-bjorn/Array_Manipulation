@@ -35,6 +35,16 @@ public class arrayManipulation {
         printArray();
     }
 
+    public static void addIndex(int index, int newNumber) {
+        System.out.printf("Adding new %dh element\n", index);
+        for (int i = currentSize + 1; i > index; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[index] = newNumber;
+        currentSize++;
+        printArray();
+    }
+
     // Main
     public static void main(String[] args) {
         // Randomly generated Array
@@ -47,6 +57,15 @@ public class arrayManipulation {
         if (sc.next().equals("y")) {
             System.out.print("Which Index Do you Want to delete? : ");
             removeIndex(sc.nextInt());
+        }
+
+        // Adding an element
+        System.out.print("Want to add some Indexes ? y/n : ");
+        if (sc.next().equals("y")) {
+            System.out.print("Which Index Do you Want to Add to? : ");
+            int i = sc.nextInt();
+            System.out.print("Add some value to it : ");
+            addIndex(i, sc.nextInt());
         }
     }
 }
